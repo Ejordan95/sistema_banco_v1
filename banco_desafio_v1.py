@@ -8,7 +8,7 @@ menu = '''
                 Bem vindo ao Banco XPTO
 
 Em que posso ajudar?
-[1] Deposito
+[1] Depósito
 [2] Saque
 [3] Extrato
 [0] Sair
@@ -18,18 +18,18 @@ Em que posso ajudar?
 while True:
     opcao = input(menu)
 
-    if opcao == "1":
-        valor = float(input("Informe valor para Deposito: "))
+    if opcao == "1": #Depósito
+        valor = float(input("Informe valor para Depósito: "))
 
         if valor > 0:
             saldo += valor
-            extrato += f"Deposito: R$ {valor:.2f}\n"
+            extrato += f"Depósito: R$ {valor:.2f}\n"
         
         else:
             print("Erro".center(10,"!"))
             print("Informe um valor válido.")
     
-    elif opcao == "2":
+    elif opcao == "2": #Saque
         valor = float(input("Informa o valor para Saque: "))
 
         excedeu_saldo = valor > saldo
@@ -40,7 +40,7 @@ while True:
             print("Operação falhou! Você não tem saldo suficiente.")
 
         elif excedeu_limite:
-            print("Operação falhou! O valor de saque excede o limite.")
+            print("Operação falhou! O valor de saque excede o limite diário.")
 
         elif excedeu_saque:
             print("Operação falhou! Número máximo de saques excedido")
@@ -52,7 +52,7 @@ while True:
         else:
             print("Operação Falhou! O valor informado é inválido.")
     
-    elif opcao == "3":
+    elif opcao == "3": #Extrato
         print(" EXTRATO ".center(20,"#"))
         print("Não foram realizadas movimentações." if not extrato else extrato)
         print(f"\nSaldo: R$ {saldo:.2f}")
@@ -63,5 +63,3 @@ while True:
 
     else:
         print("Operação inválida!")
-
-#print(menu)
